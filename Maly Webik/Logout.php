@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (($_SESSION["loggedIn"] ?? false) === False){
-	header('location: Lorem Ipsum.php');
+	header('location: loremipsum');
 	exit();
 }
 $_SESSION["loggedIn"] = False;

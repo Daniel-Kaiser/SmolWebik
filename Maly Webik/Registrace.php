@@ -3,8 +3,7 @@ session_start();
 var_dump($_POST);
 var_dump($_SESSION);
 if (isset($_SESSION["username"]) and isset($_SESSION["password"])){
-	header('location: Login.php');
-	echo "fff";
+	header('location: login');
 	exit();
 }
 $username= $_POST["username"] ?? NULL;
@@ -12,7 +11,7 @@ $password= $_POST["password"] ?? NULL;
 if (is_string($username) and is_string($password)){
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
-	header('location: Login.php');
+	header('location: login');
 	exit();
 }
 

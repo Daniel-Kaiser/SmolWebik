@@ -3,7 +3,11 @@ session_start();
 var_dump($_POST);
 var_dump($_SESSION);
 if (($_SESSION["loggedIn"] ?? false) === True){
-	header('location: Lorem Ipsum.php');
+	header('location: loremipsum');
+	exit();
+}
+if (!isset($_SESSION["username"]) or !isset($_SESSION["password"])){
+	header('location: registrace');
 	exit();
 }
 $username= $_POST["username"] ?? NULL;
@@ -11,7 +15,7 @@ $password= $_POST["password"] ?? NULL;
 if (is_string($username) and is_string($password)){
 	if ($_SESSION["username"] === $username and $_SESSION["password"] === $password){
 		$_SESSION["loggedIn"] = True;
-		header('location: Lorem Ipsum.php');
+		header('location: loremipsum');
 		exit();
 	}
 }
